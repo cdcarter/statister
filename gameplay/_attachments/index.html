@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gameplay!</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+  </head>
+  <body>
+    <h1>Gameplay</h1>
+
+    <div id="main">
+      <div id="tossup"></div>
+      <a id="next" href="#">Next Tossup</a>
+    </div>
+    
+    <div id="sidebar">
+      <input type=radio name=points value=ten>10<br>
+      <input type=radio name=points value=neg>-5<br>
+    </div>
+  </body>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.couch.app(function(app) {
+      x = app
+      gameID = app.req.query.game
+      tossupID = app.req.query.tossup
+      var round = 1;
+      
+      app.list("players","players",{startkey: [gameID], endkey: [gameID,{}] ,success:function(doc) {
+        $("#sidebar").append(doc)
+        round = parseInt($(".team").attr('data-round'))
+      }});
+      
+      function loadTossup() {
+        app.show("tossup",tossupID,{},function(html) {
+        $("#tossup").html(html)
+
+        $(".word").click(function(e) {
+          team = $("input[name=player]:checked").attr("data-team")
+          player = $("input[name=player]:checked").val()
+          value = $("input[name=points]:checked").val()
+          word = $(this).attr("data-word")
+                    
+          app.db.saveDoc({player: player, team: team, game: gameID, tossup: tossupID, 
+             word: parseInt(word), value:value, type: "buzz"},
+             {success: function(r) { nextTossup() }})
+          
+        });})
+      } 
+      
+      if (tossupID === void 0) {
+        app.view("tossups",{key:[round,1],success:function(res){
+          tossupID = res.rows[0].id
+          
+          loadTossup()
+        }})
+      } else {
+        loadTossup()
+      }
+      
+      function nextTossup() {
+        app.view("tossups",{startkey:[round,parseInt( $("#tu").text() )],endkey:[round,{}],success:function(res){
+          window.location.search = jQuery.query.set("tossup",res.rows[1].id)
+        }})
+      }
+      
+      $("#next").click(nextTossup)
+    });
+  </script>
+</html>

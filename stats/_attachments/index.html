@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Statister</title>
+    <link rel="stylesheet" href="style/main.css" type="text/css">
+  </head>
+  <body>
+
+    <h1>Statister</h1>
+
+    <div id="entry">
+      <div class="teamA">
+        <h2 id="teamA"></h2><input id="teamAscore">
+      </div>
+      <div class="teamB">
+        <h2 id="teamB"></h2><input id="teamBscore">
+      </div>
+    </div>
+
+    <div id="sidebar">
+      <p>Edit welcome message.</p>
+      <p>Ideas: You could easily turn this into a photo sharing app, or a grocery list, or a chat room.</p>
+    </div>
+  </body>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    var x;
+    $.couch.app(function(app) {
+      x = app;
+      
+      gameID = app.req.query.game
+      app.db.openDoc(gameID,{},{success:function(doc) {
+        $("#teamA").append(doc.teamA)
+        $("#teamB").append(doc.teamB)
+        $("#teamAscore").val(doc.teamAscore)
+        $("#teamBscore").val(doc.teamBscore)
+        for(ap in doc.teamAstats) {
+          $(".teamA").append("<input id=teamA"+ap+" value="+doc.teamAstats[ap].name+">")
+        }
+      }})
+    });
+  </script>
+</html>
