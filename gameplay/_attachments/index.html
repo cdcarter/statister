@@ -8,7 +8,7 @@
     <h1>Gameplay</h1>
 
     <div id="main">
-      <div id="tossup"></div>
+      <div id="question"></div>
       <a id="next" href="#">Next Tossup</a>
     </div>
     
@@ -23,6 +23,7 @@
       x = app
       gameID = app.req.query.game
       tossupID = app.req.query.tossup
+      bonusID = app.req.query.bonus
       var round = 1;
       
       app.list("players","players",{startkey: [gameID], endkey: [gameID,{}] ,success:function(doc) {
@@ -32,25 +33,43 @@
       
       function loadTossup() {
         app.show("tossup",tossupID,{},function(html) {
-        $("#tossup").html(html)
-
-        $(".word").click(function(e) {
-          team = $("input[name=player]:checked").attr("data-team")
-          player = $("input[name=player]:checked").val()
-          value = $("input[name=points]:checked").val()
-          word = $(this).attr("data-word")
-                    
-          app.db.saveDoc({player: player, team: team, game: gameID, tossup: tossupID, 
-             word: parseInt(word), value:value, type: "buzz"},
-             {success: function(r) { nextTossup() }})
+          $("#question").html(html)
           
-        });})
-      } 
+          $(".word").click(function(e) {
+            team = $("input[name=player]:checked").attr("data-team")
+            player = $("input[name=player]:checked").val()
+            value = $("input[name=points]:checked").val()
+            word = $(this).attr("data-word")
+            
+            //  TODO this needs to determine what the next tossup is, and stash it in the URI, and load what the next bonus is
+            //  which should be successfully stashed in the query from loadBonus()
+            
+            app.db.saveDoc({player: player, team: team, game: gameID, tossup: tossupID, 
+               word: parseInt(word), value:value, type: "buzz"},
+               {success: function(r) { nextTossup() }})
+          });
+        });
+      }
+      
+      function loadBonus() {
+        app.show("bonus",bonusID,function(html) {
+          $("#question").html(html)
+          $("#nextquestion").click(function() {
+            // TODO this needs to figure out what the next tossup was (loadTossup() shoud handle that)
+            // and also stash what the next bonus is into the query
+          });
+        });
+      }
+      
+      if (bonusID === void 0) {
+        app.view("bonuses",{key:[round,1],success:function(res){
+          bonusId = res.rows[0].id
+        }})
+      }
       
       if (tossupID === void 0) {
         app.view("tossups",{key:[round,1],success:function(res){
           tossupID = res.rows[0].id
-          
           loadTossup()
         }})
       } else {
