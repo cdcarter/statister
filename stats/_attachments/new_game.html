@@ -5,11 +5,11 @@
     <link type="text/css" href="style/ui.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>New Game</h1>
+    <h1 style="font-family:'Raleway'">New Game</h1>
     <form>
       <input name=round id=round value="Round" style="font-size: 24pt;font-family:'Raleway'">
       
-      <h2><input name=teamA id=teamA value="Team A" style="font-size: 24pt;font-family:'Raleway'"></h2>
+      <h2><input class=team name=teamA id=teamA value="Team A" style="font-size: 24pt;font-family:'Raleway'"></h2>
       <p>
         <input class=teamAplayer value="Player 1" style="font-size: 18pt;font-family:'Raleway'">
         <input class=teamAplayer value="Player 2" style="font-size: 18pt;font-family:'Raleway'">
@@ -18,7 +18,7 @@
         <input class=teamAplayer value="" style="font-size: 18pt;font-family:'Raleway'">
         <input class=teamAplayer value="" style="font-size: 18pt;font-family:'Raleway'">
       </p>
-      <h2><input name=teamB id=teamB value="Team B" style="font-size: 24pt;font-family:'Raleway'"></h2>
+      <h2><input class=team name=teamB id=teamB value="Team B" style="font-size: 24pt;font-family:'Raleway'"></h2>
       <p>
         <input class=teamBplayer value="Player 1" style="font-size: 18pt;font-family:'Raleway'">
         <input class=teamBplayer value="Player 2" style="font-size: 18pt;font-family:'Raleway'">
@@ -27,11 +27,18 @@
         <input class=teamBplayer value="" style="font-size: 18pt;font-family:'Raleway'">
         <input class=teamBplayer value="" style="font-size: 18pt;font-family:'Raleway'">
       </p>
+      
+      <input type=submit id="submit" style="font-family:'Raleway'">
     </form>
   </body>
   <script src="vendor/couchapp/loader.js"></script>
   <script>
   $.couch.app(function(app) {
+    app.view("teams",{group:true, success: function(resp) {
+      var vals = []
+      for ( r in resp.rows ) {vals.push(resp.rows[r].key)}
+      $(".team").autocomplete({source:vals})
+    }});
     
   })
   </script>
