@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Statister: Game Entry</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100&v1' rel='stylesheet' type='text/css'>
+    <link type="text/css" href="style/ui.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>New Game</h1>
+    <form>
+      <input name=round id=round value="Round" style="font-size: 24pt;font-family:'Raleway'">
+      
+      <h2><input name=teamA id=teamA value="Team A" style="font-size: 24pt;font-family:'Raleway'"></h2>
+      <p>
+        <input class=teamAplayer value="Player 1" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamAplayer value="Player 2" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamAplayer value="Player 3" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamAplayer value="Player 4" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamAplayer value="" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamAplayer value="" style="font-size: 18pt;font-family:'Raleway'">
+      </p>
+      <h2><input name=teamB id=teamB value="Team B" style="font-size: 24pt;font-family:'Raleway'"></h2>
+      <p>
+        <input class=teamBplayer value="Player 1" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamBplayer value="Player 2" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamBplayer value="Player 3" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamBplayer value="Player 4" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamBplayer value="" style="font-size: 18pt;font-family:'Raleway'">
+        <input class=teamBplayer value="" style="font-size: 18pt;font-family:'Raleway'">
+      </p>
+    </form>
+  </body>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script>
+  $.couch.app(function(app) {
+    
+  })
+  </script>
+</html>
