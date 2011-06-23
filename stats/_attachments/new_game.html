@@ -64,8 +64,10 @@
         if (o.value != ""){return {"name": o.value}}
       })
       
-      resp = app.db.saveDoc(doc,{success:function(resp) {alert("Saved: " + resp.id)}})
-      window.location.reload()
+      resp = app.db.saveDoc(doc,{success:function(resp) {
+        alert("Saved: " + resp.id)
+        window.location.reload()
+      }})
     });
   })
   </script>
