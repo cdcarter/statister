@@ -1,5 +1,5 @@
 function(doc) {
   if (doc.type=="game") {
-    emit(doc._id, doc);
+    emit([doc.round,doc._id], null);
   }
 };

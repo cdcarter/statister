@@ -8,8 +8,8 @@
     <h1 style="font-family:'Raleway'">New Game</h1>
     <form>
       <input name=round id=round value="Round" style="font-size: 24pt;font-family:'Raleway'">
-      <input name=room id=round value="Room" style="font-size: 24pt;font-family:'Raleway'">
-      <input name=moderator id=round value="Moderator" style="font-size: 24pt;font-family:'Raleway'">
+      <input name=room id=room value="Room" style="font-size: 24pt;font-family:'Raleway'">
+      <input name=moderator id=moderator value="Moderator" style="font-size: 24pt;font-family:'Raleway'">
       <input name=packet id=packet value="Packet ID" style="font-size: 24pt;font-family:'Raleway'">
       
       <h2><input class=team name=teamA id=teamA value="Team A" style="font-size: 24pt;font-family:'Raleway'"></h2>
@@ -43,10 +43,19 @@
       $(".team").autocomplete({source:vals})
     }});
     
-    $("#submit").click(function() {
-      doc = {
+    $(".team").bind("autocompletechange",function() {
+      var t = this.name
+      app.view("players",{group:true, startkey:[this.value], endkey:[this.value,{}], success: function(resp) {
+        var vals = []
+        for (var r in resp.rows ) {vals.push(resp.rows[r].key[1])}
+        $("."+t+"player").autocomplete({source:vals})
+      }})
+    })
+    
+    function buildDoc(){
+      var doc = {
         "type": "game",
-        "round": $("#round").val(),
+        "round": parseInt($("#round").val()),
         "room": $("#room").val(),
         "moderator": $("#moderator").val(),
         "packet": $("#packet").val(),
@@ -64,7 +73,11 @@
         if (o.value != ""){return {"name": o.value}}
       })
       
-      resp = app.db.saveDoc(doc,{success:function(resp) {
+      return doc
+    }
+    
+    $("#submit").click(function() {
+      resp = app.db.saveDoc(buildDoc(),{success:function(resp) {
         alert("Saved: " + resp.id)
         window.location.reload()
       }})
