@@ -32,10 +32,10 @@
 		{"number":10,"moderator":"KRC"},{"number":11,"moderator":"Taylor"},{"number":12,"moderator":"Czupryn"}
 	],
 	"brackets": [
-		{"flight":1,"name":"Rachel","teams":["Crete B","Maine South","BG B","PORTA","McHenry","Keith B"]},
-		{"flight":1,"name":"Leah","teams":["Barrington B","Crete A","Fenwick B","Keith A","WWS B","Sterling A"]},
-		{"flight":1,"name":"Zilpah","teams":["Ig B","Wheaton B","Niles West","Sterling B","Auburn C","Lisle"]},
-		{"flight":1,"name":"Bilhah","teams":["Fenton","Auburn D","Springfield","Leyden","Byron","Loyola A"]}
+		{"flight":"prelims","name":"Rachel","teams":["Crete B","Maine South","BG B","PORTA","McHenry","Keith B"]},
+		{"flight":"prelims","name":"Leah","teams":["Barrington B","Crete A","Fenwick B","Keith A","WWS B","Sterling A"]},
+		{"flight":"prelims","name":"Zilpah","teams":["Ig B","Wheaton B","Niles West","Sterling B","Auburn C","Lisle"]},
+		{"flight":"prelims","name":"Bilhah","teams":["Fenton","Auburn D","Springfield","Leyden","Byron","Loyola A"]}
 	],
 	"schedules":[
 	  {"bracket":"Rachel","room":1,"schedule":[["Crete B","Maine South"],["PORTA","Keith B"],["McHenry","Maine South"],["Crete B","BG B"],["McHenry","BG B"]]},
