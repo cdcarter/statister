@@ -1,0 +1,54 @@
+{
+	"teams": [
+		{"name":"Crete B","players":["Thomas","Brandon","Kelly","Tucker","Joel"]},
+		{"name":"Maine South","players":["Tom","Casey","Austin","Pat","Leia"]},
+		{"name":"BG B","players":["Simon","Sammie","Sam","Tom","Sean"]},
+		{"name":"PORTA","players":["Eli","Summer","Justin","Taylor","Josh"]},
+		{"name":"McHenry","players":["Quinn","Chris","Becky","Eric","Sean"]},
+		{"name":"Keith B","players":["Kanhai","Rachel","Ashley","Kendra","Max"]},
+		{"name":"Barrington B","players":["Jake","Anurag","Kush","Andrew"]},
+		{"name":"Crete A","players":["Kristina","Emma","Sanham","Ahaji","Jay"]},
+		{"name":"Fenwick B","players":["Zach","Peter","Mike","Drew","Spencer"]},
+		{"name":"Keith A","players":["Christofer","Ben","Thomas","Alisha","Michelle"]},
+		{"name":"WWS B","players":["Allison","Peter","Greg","Sam","Will"]},
+		{"name":"Sterling A","players":["Mason","Sam","Josh","Jacob","Mark"]},
+		{"name":"Ig B","players":["Grace","William","Vicki","DePaul","Josh"]},
+		{"name":"Wheaton B","players":["Dan","Thomas","Esther","Michael","William"]},
+		{"name":"Niles West","players":["Michael","Ashkar","Patrick","Vikram","Alexis"]},
+		{"name":"Lisle","players":["Colton","PJ","Ben","Max"]},
+		{"name":"Sterling B","players":["Zoee","Katelin","Alan","Jordan","Mary"]},
+		{"name":"Auburn C","players":["Danielle","Kevin","Jessica","Stephanie"]},
+		{"name":"Fenton","players":["Blake","Andrew","Rohan","Rahi","Greg"]},
+		{"name":"Auburn D","players":["Emily","Jake","Will","Ashwin"]},
+		{"name":"Springfield","players":["Johnny","Neil","Max","Marlana","Jackson"]},
+		{"name":"Leyden","players":["Rocco","Annie","Claire","Nick","Nik"]},
+		{"name":"Byron","players":["Amanda","Roy","Scott","Jacob"]},
+		{"name":"Loyola C","players":["Rosie","Zach","Mark","Joe"]}
+	],
+	"rooms": [
+		{"number":1,"moderator":"Goldfein"},{"number":2,"moderator":"Gerhardt"},{"number":3,"moderator":"Peranovic"},
+		{"number":4,"moderator":"Grant"},{"number":5,"moderator":"Server"},{"number":6,"moderator":"Long"},
+		{"number":7,"moderator":"Johnson"},{"number":8,"moderator":"Rogers"},{"number":9,"moderator":"Volgman"},
+		{"number":10,"moderator":"KRC"},{"number":11,"moderator":"Taylor"},{"number":12,"moderator":"Czupryn"}
+	],
+	"brackets": [
+		{"flight":1,"name":"Rachel","teams":["Crete B","Maine South","BG B","PORTA","McHenry","Keith B"]},
+		{"flight":1,"name":"Leah","teams":["Barrington B","Crete A","Fenwick B","Keith A","WWS B","Sterling A"]},
+		{"flight":1,"name":"Zilpah","teams":["Ig B","Wheaton B","Niles West","Sterling B","Auburn C","Lisle"]},
+		{"flight":1,"name":"Bilhah","teams":["Fenton","Auburn D","Springfield","Leyden","Byron","Loyola A"]}
+	],
+	"schedules":[
+	  {"bracket":"Rachel","room":1,"schedule":[["Crete B","Maine South"],["PORTA","Keith B"],["McHenry","Maine South"],["Crete B","BG B"],["McHenry","BG B"]]},
+	  {"bracket":"Rachel","room":2,"schedule":[["BG B","PORTA"],["McHenry","Crete B"],["BG B","Keith B"],["Maine South","Keith B"],["Maine South","PORTA"]]},
+		{"bracket":"Rachel","room":3,"schedule":[["McHenry","Keith B"],["Maine South","BG B"],["Crete B","PORTA"],["PORTA","McHenry"],["Crete B","Keith B"]]},
+		{"bracket":"Leah","room":4,"schedule":[["Barrington B","Crete A"],["Sterling A","Keith A"],["WWS B","Fenwick B"],["WWS B","Barrington B"],["Crete A","Fenwick B"]]},
+		{"bracket":"Leah","room":5,"schedule":[["Fenwick B","Keith A"],["WWS B","Crete A"],["Barrington B","Keith A"],["Sterling A","Fenwick B"],["Sterling A","Barrington B"]]},
+		{"bracket":"Leah","room":6,"schedule":[["WWS B","Sterling A"],["Fenwick B","Barrington B"],["Sterling A","Crete A"],["Keith A","Crete A"],["Keith A","WWS B"]]},
+		{"bracket":"Zilpah","room":7,"schedule":[["Ig B","Wheaton B"],["Niles West","Sterling B"],["Ig B","Lisle"],["Auburn C","Lisle"],["Auburn C","Wheaton B"]]},
+		{"bracket":"Zilpah","room":8,"schedule":[["Niles West","Lisle"],["Ig B","Auburn C"],["Wheaton B","Sterling B"],["Wheaton B","Niles West"],["Lisle","Sterling B"]]},
+		{"bracket":"Zilpah","room":9,"schedule":[["Sterling B","Auburn C"],["Lisle","Wheaton B"],["Niles West","Auburn C"],["Sterling B","Ig B"],["Niles West","Ig B"]]},
+		{"bracket":"Bilhah","room":10,"schedule":[["Fenton","Auburn D"],["Springfield","Byron"],["Fenton","Loyola C"],["Leyden","Auburn D"],["Loyola C","Leyden"]]},
+		{"bracket":"Bilhah","room":11,"schedule":[["Springfield","Leyden"],["Auburn D","Loyola C"],["Byron","Leyden"],["Byron","Fenton"],["Springfield","Fenton"]]},
+		{"bracket":"Bilhah","room":12,"schedule":[["Byron","Loyola C"],["Fenton","Leyden"],["Springfield","Auburn D"],["Loyola C","Springfield"],["Byron","Auburn D"]]}
+	]
+}
