@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Statister: Game Entry</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:100&v1' rel='stylesheet' type='text/css'>
+  </head>
+  <body style="font-family:'Raleway'">
+    <h1>Game Entry: Round {{round}} - Room {{room}}</h1>
+    <h2>{{bracket}}</h2>
+    
+    <form method=post action="{{_root}}/_update/entry/{{_id}}">
+    
+    <input name=moderator id=moderator value={{moderator}} />
+    <div id=teamAstats>
+      <h3>{{teamA}}</h3>
+      <label for="teamAscore">Score: </label><input name="teamAscore" value="{{teamAscore}}" /><br/>
+      <label for="teamAtuh">TUH: </label><input name="teamAtuh" value="{{teamAtuh}}" /><br/>
+      <table>
+        <tr><th>Player</th><th>10s</th><th>-5s</th><th>TUH</th></tr>
+        {{#teamAstats}}
+        <tr><td>{{name}}</td>
+          <td><input size=4 value="{{tens}}" name="teamA{{idx}}tens"/></td>
+          <td><input size=4 value="{{negs}}" name="teamA{{idx}}negs"/></td>
+          <td><input size=4 value="{{tuh}}" name="teamA{{idx}}tuh"/></td>
+        </tr>
+        {{/teamAstats}}
+      </table>
+      <label for="teamAbhrd">Bonuses Heard: </label><input name="teamAbhrd" value="{{teamAbhrd}}" size=5/>
+      <label for="teamAbpts">Bonus Points: </label><input name="teamAbpts" value="{{teamAbpts}}" size=5/>
+    </div>
+    
+    <div id=teamBstats>
+      <h3>{{teamB}}</h3>
+      <label for="teamBscore">Score: </label><input name="teamBscore" value="{{teamBscore}}" /><br/>
+      <label for="teamBtuh">TUH: </label><input name="teamBtuh" value="{{teamBtuh}}" /><br/>
+      <table>
+        <tr><th>Player</th><th>10s</th><th>-5s</th><th>TUH</th></tr>
+        {{#teamBstats}}
+        <tr><td>{{name}}</td>
+          <td><input size=4 name="teamB{{idx}}tens" value="{{tens}}"/></td>
+          <td><input size=4 value="{{negs}}" name="teamB{{idx}}negs"/></td>
+          <td><input size=4 value="{{tuh}}" name="teamB{{idx}}tuh"/></td>
+        </tr>
+        {{/teamBstats}}
+      </table>
+      <label for="teamBbhrd">Bonuses Heard: </label><input name="teamBbhrd" value="{{teamBbhrd}}" size=5/>
+      <label for="teamBbpts">Bonus Points: </label><input name="teamBbpts" value="{{teamBbpts}}" size=5/>
+    </div>
+    
+    <input type="submit">
+    
+    </form>
+    
+  </body>
+  <script src="/_utils/script/jquery.js" type="text/javascript"></script>
+  <script src="/_utils/script/jquery.couch.js" type="text/javascript"></script>
+  <script src="/_utils/script/sha1.js" type="text/javascript"></script>
+  <script src="/_utils/script/json2.js" type="text/javascript"></script>
+  <script src="{{_root}}/vendor/couchapp/jquery.couch.app.js" type="text/javascript"></script>
+  <script src="{{_root}}/vendor/couchapp/jquery-ui.js" type="text/javascript"></script>
+  <script src="{{_root}}/vendor/couchapp/jquery.couch.app.util.js" type="text/javascript"></script>
+  <script src="{{_root}}/vendor/couchapp/jquery.mustache.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $.couch.app(function(app) {
+      
+    })
+  </script>
+</html>
