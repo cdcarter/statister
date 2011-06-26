@@ -24,7 +24,7 @@ function(doc) {
 			resultB[9] += doc.teamBstats[i].negs
 		}
 		
-		emit([doc.teamA,doc.bracket],resultA)
-		emit([doc.teamB,doc.bracket],resultB)
+		emit([doc.bracket,doc.teamA],resultA)
+		emit([doc.bracket,doc.teamB],resultB)
 	}
 }
