@@ -1,24 +1,28 @@
 (keys,values,re) ->
-  # results =  [gp,wins,losses,pts,ptsa,ppg,pct,mrg,tens,negs,tuh,ppth,bhrd,bpts,ppb]
-  results = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+  results = {
+    gp:0,w:0,l:0,pts:0,ptsa:0,
+    tens:0,negs:0,tuh:0,
+    bhrd:0, bpts:0
+  }
   
   for value in values
-    for stat,s in results
-      results[s] += value[s]
+    for stat of results
+      results[stat] += value[stat]
   
   #ppg
-  results[5] = results[3] / results[0]
+  results.ppg = results.pts / results.gp
   
   #pct
-  results[6] = results[1] / results[0]
+  results.pct = results.w / results.gp
   
   #mrg
-  results[7] = (results[3] - results[4]) / results[0]
+  results.mrg = (results.pts - results.ptsa) / results.gp
   
   #ppth
-  results[11] = results[3] / results[10]
+  results.ppth = results.pts / results.tuh
   
   #ppb
-  results[14] = results[13] / results[12]
+  results.ppb = results.bpts / results.bhrd
   
   results
