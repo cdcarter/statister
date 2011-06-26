@@ -21,22 +21,22 @@
     send(mustache.to_html(ddoc.templates.brackettable,doc))
   
   format = (row) ->
-    row.value.name = row.key[0]
+    row.value.name = row.key[1]
     row.value.ppb = row.value.ppb.toFixed 2
     row.value.ppth = row.value.ppth.toFixed 2
     row.value.pct = row.value.pct.toFixed 2
     row.value.mrg = row.value.mrg.toFixed 2
   
   while row = getRow()
-    if row.key[1] != doc.bracket
+    if row.key[0] != doc.bracket
       if doc.bracket != ''
         render()
       doc = {teams: []}
-      doc.bracket = row.key[1]
+      doc.bracket = row.key[0]
       format(row)
       doc.teams.push row.value
     else
-      row.value.name = row.key[0]
+      row.value.name = row.key[1]
       format(row)
       doc.teams.push row.value
   
