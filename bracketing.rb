@@ -54,7 +54,7 @@ class Bracketing
 		self.teams.find{|z| z["name"] == t}["players"] rescue puts t
 	end
 	
-	def generate
+	def schedule
 		self.parse["schedules"].map {|s|
 			base_doc = {"bracket"=>s["bracket"], "room" => s["room"], "moderator" => self.room(s["room"])["moderator"], "type"=>"game"}
 			s["schedule"].enum_for(:each_with_index).map {|rs,ri|
@@ -70,8 +70,17 @@ class Bracketing
 			}
 		}
 	end
+	
+	def brackets
+		self.parse["brackets"].map {|b|
+			{"type"=>"bracket", "name"=> b["name"],"flight"=> b["flight"], "teams"=> b["teams"]}
+		}
+	end
 end
 
 if __FILE__ == $0
- pp	Bracketing.new(ARGF.read).generate
+	b = Bracketing.new(open(ARGV[1]).read)
+	db = CouchRest.database!(ARGV[0])
+	db.bulk_save(b.schedule.flatten)
+	db.bulk_save(b.brackets)
 end
