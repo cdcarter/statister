@@ -31,7 +31,8 @@ function(doc,req) {
 		doc.teamBstats[i].tuh = parseInt(req.form["teamB"+i+"tuh"])
 	}
 	
-	resp = '<html><title>redirect</title><body><a href="../../_show/game_entry/'+doc._id+'">Click Here</a></body></html>'
+	resp = '<html><title>redirect</title><body><a href="../../_show/game_entry/'+doc._id+'">Click Here</a><br>'+
+	'<a href="../../_list/games/games_by_bracket">Game List</a></body></html>'
 	
 	return [doc,resp]
 }
