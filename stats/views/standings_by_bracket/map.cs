@@ -1,23 +1,31 @@
 (doc) ->
   if doc.type=="game" and doc.teamAtuh and doc.teamBtuh
-    # results =  [gp,wins,losses,pts,ptsa,ppg,pct,mrg,tens,negs,tuh,ppth,bhrd,bpts,ppb]
-    resultA = [1,0,0,doc.teamAscore,doc.teamBscore,0,0,0,0,0,doc.teamAtuh,0,doc.teamAbhrd,doc.teamAbpts,0]
-    resultB = [1,0,0,doc.teamBscore,doc.teamAscore,0,0,0,0,0,doc.teamBtuh,0,doc.teamBbhrd,doc.teamBbpts,0]
+
+    resultA = {
+      gp:1,w:0,l:0,pts:doc.teamAscore,ptsa:doc.teamBscore,
+      tens:0,negs:0,tuh:doc.teamAtuh,
+      bhrd:doc.teamAbhrd, bpts:doc.teamAbpts
+    }
+    resultB = {
+      gp:1,w:0,l:0,pts:doc.teamBscore,ptsa:doc.teamAscore,
+      tens:0,negs:0,tuh:doc.teamBtuh,
+      bhrd:doc.teamBbhrd, bpts:doc.teamBbpts
+    }
     
     if doc.teamAscore > doc.teamBscore
-      resultA[1] = 1
-      resultB[2] = 1
+      resultA.w = 1
+      resultB.l = 1
     else
-      resultA[2] = 1
-      resultB[1] = 1
+      resultA.l = 1
+      resultB.w = 1
 
     for player in doc.teamAstats
-      resultA[8] += player.tens
-      resultA[9] += player.negs
+      resultA.tens += player.tens
+      resultA.negs += player.negs
     
     for player in doc.teamBstats
-      resultB[8] += player.tens
-      resultB[9] += player.negs
+      resultB.tens += player.tens
+      resultB.negs += player.negs
     
     emit [doc.bracket,doc.teamA],resultA 
     emit [doc.bracket,doc.teamB],resultB
