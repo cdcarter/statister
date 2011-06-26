@@ -22,9 +22,9 @@
     player.tuh = (Number req.form["teamA#{i}tuh"])
   
   for player,i in doc.teamBstats
-    player.tens = (Number req.form["teamA#{i}tens"])
-    player.negs = (Number req.form["teamA#{i}negs"])
-    player.tuh = (Number req.form["teamA#{i}tuh"])
+    player.tens = (Number req.form["teamB#{i}tens"])
+    player.negs = (Number req.form["teamB#{i}negs"])
+    player.tuh = (Number req.form["teamB#{i}tuh"])
 
   
   resp = "<html><title>redirect</title><body><a href='../../_show/game_entry/#{doc._id}'>Click Here</a><br>
