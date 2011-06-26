@@ -17,13 +17,15 @@ function(doc,req) {
 	doc.teamAbpts = parseInt(req.form.teamAbpts)
 	doc.teamBbpts = parseInt(req.form.teamBbpts)
 	
-	for (var i in doc.teamAstats) {
+	var _lenA = doc.teamAstats.length
+	for (var i=0; i<_lenA; ++i ) {
 		doc.teamAstats[i].tens = parseInt(req.form["teamA"+i+"tens"])
 		doc.teamAstats[i].negs = parseInt(req.form["teamA"+i+"negs"])
 		doc.teamAstats[i].tuh = parseInt(req.form["teamA"+i+"tuh"])
 	}
 	
-	for (var i in doc.teamBstats) {
+	var _lenB = doc.teamBstats.length
+	for (var i=0; i<_lenB; ++i ) {
 		doc.teamBstats[i].tens = parseInt(req.form["teamB"+i+"tens"])
 		doc.teamBstats[i].negs = parseInt(req.form["teamB"+i+"negs"])
 		doc.teamBstats[i].tuh = parseInt(req.form["teamB"+i+"tuh"])

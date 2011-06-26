@@ -10,10 +10,12 @@ function(doc,req) {
 			doc.teamAtuh = 20;
 			doc.teamBtuh = 20;
 		}
-		for (var i in doc.teamAstats) {
+		var _lenA = doc.teamAstats.length
+		for (var i=0; i<_lenA; ++i ) {
 			doc.teamAstats[i].idx = i
 		}
-		for (var i in doc.teamBstats) {
+		var _lenB = doc.teamBstats.length
+		for (var i=0; i<_lenB; ++i ) {
 			doc.teamBstats[i].idx = i
 		}
 	} else {
