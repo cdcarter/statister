@@ -17,7 +17,6 @@
       if y.ppg < x.ppg
         return -1
   
-  
   render = () ->
     # sort by win pct and ppg if pct is equal
     doc.teams = doc.teams.sort(team_sort)
