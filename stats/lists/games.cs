@@ -1,6 +1,7 @@
 (head,req) ->
   mustache = require("vendor/couchapp/lib/mustache")
   round = 0
+  view = req.path[req.path.length-1]
   bracket = ''
 	
   start { "headers": {"Content-Type": "text/html"}}
