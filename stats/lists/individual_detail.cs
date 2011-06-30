@@ -20,4 +20,5 @@
         
         send(mustache.to_html template,row.value)
         
+  return ""
         
