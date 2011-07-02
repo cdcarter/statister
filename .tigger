@@ -1,2 +1,0 @@
-BEGIN_TIGGER
-games.cs list function should handle games and games_by_bracket
