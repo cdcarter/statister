@@ -30,5 +30,5 @@
       
   
   switch view
-    when "individual_standings"
+    when "individual"
      overall()
