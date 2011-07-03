@@ -1,0 +1,34 @@
+<h1>{{name}}</h1>
+<table>
+  <tr>
+    <th>Opponent</th><th>Pts</th><th>Pts Against</th>
+    <th>10</th><th>-5</th><th>TUH</th>
+    <th>PPth</th><th>Bhrd</th><th>Bpts</th><th>PPB</th>
+  <tr>
+    
+  {{#games}}
+  <tr>
+    <td>{{opponent}}</td><td>{{pts}}</td><td>{{ptsa}}</td>
+    <td>{{tens}}</td><td>{{negs}}</td><td>{{tuh}}</td>
+    <td>{{ppth}}</td><td>{{bhrd}}</td><td>{{bpts}}</td><td>{{ppb}}</td>  
+  </tr>
+  {{/games}}
+  
+  <tr>
+    <td><b>Total</b></td><td>{{pts}}</td><td>{{ptsa}}</td>
+    <td>{{tens}}</td><td>{{negs}}</td><td>{{tuh}}</td>
+    <td>{{ppth}}</td><td>{{bhrd}}</td><td>{{bpts}}</td><td>{{ppb}}</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>Name</th><th>GP</th><th>10</th><th>-5</th><th>TUH</th><th>PPth</th><th>Pts</th><th>PPG</th>
+  </tr>
+  
+  {{#players}}
+    <tr>
+      <td>{{name}}</td><td>{{gp}}</td><td>{{tens}}</td><td>{{negs}}</td>
+      <td>{{tuh}}</td><td>{{ppth}}</td><td>{{pts}}</td><td>{{ppg}}</td>
+    </tr>
+  {{/players}}
+</table>
